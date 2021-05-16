@@ -1,0 +1,7 @@
+C:\Users\asada\Desktop\C#\Minsesweeper\Minsesweeper\bin\Debug\Minsesweeper.exe.config
+C:\Users\asada\Desktop\C#\Minsesweeper\Minsesweeper\bin\Debug\Minsesweeper.exe
+C:\Users\asada\Desktop\C#\Minsesweeper\Minsesweeper\bin\Debug\Minsesweeper.pdb
+C:\Users\asada\Desktop\C#\Minsesweeper\Minsesweeper\obj\Debug\Minsesweeper.csprojAssemblyReference.cache
+C:\Users\asada\Desktop\C#\Minsesweeper\Minsesweeper\obj\Debug\Minsesweeper.csproj.CoreCompileInputs.cache
+C:\Users\asada\Desktop\C#\Minsesweeper\Minsesweeper\obj\Debug\Minsesweeper.exe
+C:\Users\asada\Desktop\C#\Minsesweeper\Minsesweeper\obj\Debug\Minsesweeper.pdb
