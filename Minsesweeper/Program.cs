@@ -16,8 +16,11 @@ namespace Minsesweeper
             board.SetupLiveNeihbors();
             
             printBoard(board);
-            
+            DisplayCurrentBoard(board);
+            Console.WriteLine();
             Console.ReadLine();
+            
+           
         }
 
         private static void printBoard(Board board)
@@ -61,11 +64,33 @@ namespace Minsesweeper
                 }
                 
                 Console.Write(" | ");
-                Console.Write(i);
+                //Console.Write(i);
                 Console.WriteLine();
                 
             }
             
+            Console.WriteLine(" =================================");
+        }
+
+
+        private static void DisplayCurrentBoard(Board board)
+        {
+            Console.WriteLine(" =================================");
+            Cell cell;
+            for (int i = 0; i < board.Size; i++)
+            {
+                for (int k = 0; k < board.Size; k++)
+                {
+                    cell = board.Grid[i, k];
+                    Console.Write(" | ");
+                    Console.Write("?");
+                }
+
+                Console.Write(" | ");
+               
+                Console.WriteLine();
+            }
+
             Console.WriteLine(" =================================");
         }
     }

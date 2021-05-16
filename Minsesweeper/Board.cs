@@ -29,13 +29,9 @@ namespace Minsesweeper
 
             public void SetupLiveNeihbors()
             {
-                Cell cell;
-                //var result = decimal.ToDouble(decimal.Divide(difficulty, 100));
-                //int percentage = Convert.ToInt32(result * (Size * Size));
-                //Console.WriteLine(percentage);
+                
                 var random = new Random();
-                //int randomNumber = random.Next(1, 20);
-                //Console.WriteLine(randomNumber);
+                
                 for (int i = 0; i < Size; i++)
                 {
                     int x = random.Next(1, Size);
@@ -71,8 +67,29 @@ namespace Minsesweeper
                         cell.NumberOfNeighborsLve++;
                 }
 
-                //Console.WriteLine(cell.NumberOfNeighborsLve);
+                if (IsSafe(cell.Rows-1, cell.Columns - 1))
+                {
+                    if (Grid[cell.Rows-1, cell.Columns - 1].IsLive)
+                        cell.NumberOfNeighborsLve++;
+                }
 
+                if (IsSafe(cell.Rows-1, cell.Columns + 1))
+                {
+                    if (Grid[cell.Rows - 1, cell.Columns + 1].IsLive)
+                        cell.NumberOfNeighborsLve++;
+                }
+
+                if (IsSafe(cell.Rows+1, cell.Columns + 1))
+                {
+                    if (Grid[cell.Rows +1 , cell.Columns + 1].IsLive)
+                        cell.NumberOfNeighborsLve++;
+                }
+
+                if (IsSafe(cell.Rows +1, cell.Columns - 1))
+                {
+                    if (Grid[cell.Rows + 1, cell.Columns - 1].IsLive)
+                        cell.NumberOfNeighborsLve++;
+                }
 
             }
 
