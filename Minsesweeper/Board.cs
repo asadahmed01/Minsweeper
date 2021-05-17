@@ -27,6 +27,12 @@ namespace Minsesweeper
                 }
             }
 
+            public void MarkVisited(int x, int y)
+            {
+                if(IsSafe(x, y))
+                    Grid[x, y].Visited = true;
+            }
+
             public void SetupLiveNeihbors()
             {
                 

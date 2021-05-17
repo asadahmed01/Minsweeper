@@ -11,16 +11,30 @@ namespace Minsesweeper
         static Board board = new Board(8);
         static void Main(string[] args)
         {
-            
-            printBoard(board);
+
+            //printBoard(board);
+            //board.SetupLiveNeihbors();
+            //printBoard(board);
+            //DisplayCurrentBoard(board);
+            string x;
+            string y;
+            Console.WriteLine("Enter X and Y coordinates or 'x' to Quit:");
             board.SetupLiveNeihbors();
-            
             printBoard(board);
-            DisplayCurrentBoard(board);
-            Console.WriteLine();
+            while (true)
+            {
+                Console.WriteLine("Enter X coordinate:");
+                x = Console.ReadLine();
+
+                Console.WriteLine("Enter Y coordinate:");
+                y = Console.ReadLine();
+                if (x.Trim() == "x" || y.Trim() == "x")
+                    break;
+                board.MarkVisited(Convert.ToInt32(x), Convert.ToInt32(y));
+                DisplayCurrentBoard(board, Convert.ToInt32(x), Convert.ToInt32(y));
+            }
+            Console.WriteLine("Press Enter to Exit...");
             Console.ReadLine();
-            
-           
         }
 
         private static void printBoard(Board board)
@@ -64,7 +78,7 @@ namespace Minsesweeper
                 }
                 
                 Console.Write(" | ");
-                //Console.Write(i);
+                Console.Write(i+1);
                 Console.WriteLine();
                 
             }
@@ -73,7 +87,7 @@ namespace Minsesweeper
         }
 
 
-        private static void DisplayCurrentBoard(Board board)
+        private static void DisplayCurrentBoard(Board board, int x, int y)
         {
             Console.WriteLine(" =================================");
             Cell cell;
@@ -82,12 +96,46 @@ namespace Minsesweeper
                 for (int k = 0; k < board.Size; k++)
                 {
                     cell = board.Grid[i, k];
-                    Console.Write(" | ");
-                    Console.Write("?");
+                    
+                   
+                        
+                    if (cell.Visited)
+                    {
+                        if (cell.IsLive)
+                        {
+                            Console.Write(" | ");
+                            Console.Write("*");
+                            Environment.Exit(1);
+                        }
+
+                        if (cell.NumberOfNeighborsLve > 0)
+                        {
+                            Console.Write(" | ");
+                            Console.Write(cell.NumberOfNeighborsLve);
+                        }
+
+                        else
+                        {
+                            Console.Write(" | ");
+                            Console.Write("O");
+                        }
+                    }
+
+                        
+
+                        
+                    //}
+
+                    else
+                    {
+                        Console.Write(" | ");
+                        Console.Write("?");
+                    }
+
                 }
 
                 Console.Write(" | ");
-               
+                //Console.Write(i+1);
                 Console.WriteLine();
             }
 
