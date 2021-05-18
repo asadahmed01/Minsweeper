@@ -99,9 +99,40 @@ namespace Minsesweeper
 
             }
 
+            public void Floodfill(int row, int col)
+            {
+                if(IsSafe(row, col))
+                {
+                    if((!Grid[row, col].IsLive) && (!Grid[row, col].Visited) )
+                    {
+                        Grid[row, col].Visited = true;
+                        if (Grid[row, col].NumberOfNeighborsLve > 0)
+                        {
+                            Grid[row, col].Visited = true;
+                            return;
+                        }
+                        else
+                        {
+
+
+                            //flood fill the east
+                            Floodfill(row + 1, col);
+                            //flood fill to the west
+                            Floodfill(row - 1, col);
+                            //flood to the north
+                            Floodfill(row, col + 1);
+                            //to the south
+                            Floodfill(row, col - 1);
+                        }
+
+                    }
+                    
+                }
+            }
+
             public bool IsSafe(int x, int y)
             {
-                if ((x < Size && y < Size) && (x >= 0 && y >= 0))
+                if ((x >= 0 && x < Size) && (y >= 0 && y < Size))
                     return true;
                 else
                     return false;

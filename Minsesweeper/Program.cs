@@ -30,8 +30,9 @@ namespace Minsesweeper
                 y = Console.ReadLine();
                 if (x.Trim() == "x" || y.Trim() == "x")
                     break;
-                board.MarkVisited(Convert.ToInt32(x), Convert.ToInt32(y));
-                DisplayCurrentBoard(board, Convert.ToInt32(x), Convert.ToInt32(y));
+                //board.MarkVisited(Convert.ToInt32(x), Convert.ToInt32(y));
+                board.Floodfill(Convert.ToInt32(y), Convert.ToInt32(x));
+                DisplayCurrentBoard(board, Convert.ToInt32(y), Convert.ToInt32(x));
             }
             Console.WriteLine("Press Enter to Exit...");
             Console.ReadLine();
@@ -105,7 +106,7 @@ namespace Minsesweeper
                         {
                             Console.Write(" | ");
                             Console.Write("*");
-                            Environment.Exit(1);
+                            //Environment.Exit(1);
                         }
 
                         if (cell.NumberOfNeighborsLve > 0)
@@ -128,8 +129,19 @@ namespace Minsesweeper
 
                     else
                     {
+                        //if(cell.NumberOfNeighborsLve > 0)
+                        //{
+                        //    Console.Write(" | ");
+                        //    Console.Write(cell.NumberOfNeighborsLve);
+                        //}
+                        //else
+                        //{
+                        //    Console.Write(" | ");
+                        //    Console.Write("?");
+                        //}
                         Console.Write(" | ");
                         Console.Write("?");
+
                     }
 
                 }
